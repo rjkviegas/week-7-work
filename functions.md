@@ -2,28 +2,31 @@
 
 Notes taken from Douglas Crockford [lecture](https://www.youtube.com/watch?v=DogGMNBZZvg&t=7021s)
 
-function expression
+### function expression
 
-Create functions using the function expression/literal which returns a new function object which can be invoked.
+A function expression creates functions using the function expression/literal, which returns a new function object, which in turn can be invoked.
 
-Naming a functions allows for it to be called recursively.
+The naming a functions allows for it to be called **recursively** (by itself so it repeats).
 
 Function objects are **first class**.
 This means they may be:
-- passed as an arugment to a function
+- passed as an argument to a function
 - returned from a function
 - assigned to a variable
 - stored in an object or array
 
 Function objects inherit from ```Function.prototype```.
 
+### ```var``` statement
+
 The ```var``` statement declares and initialises variables within a function.
 
-A variable declared anywhere within a function is visible everywhere within the function. This is commonly referred to as 'Function scope'.
+A variable declared anywhere within a function is visible everywhere within the function. This is commonly referred to as **function scope**.
 
 ```var``` statement
 - declaration part gets **hoisted** to the top of the function, initalising with ``` undefined```
 - initialisation part turns into an ordinary assignment
+Example:
 
 ```var myVar = 0, myOtherVar;```
 expands into
@@ -34,10 +37,10 @@ var myVar = undefined.
 myVar = 0;
 ```
 
-function statement
+### function statement
 
-Function name is mandatory.
-Function statement is a short-hand for a var statement with a function value.
+A function statement is a short-hand for a var statement with a function value. A function name is mandatory.
+Example:
 ```function foo() {}```
 expands to
 ```var foo = function() {};```
@@ -48,16 +51,18 @@ foo = function() {};
 ```
 The assignment of the function is also hoisted (to the top of the function).
 
-function expression v function statement
+### function expression v function statement
 If the first token in a statement is ```function``` then it is a function statement.
 
+#### Tips
 Declare all variables at the top of the function.
 Declare all functions before you call them.
 
-Closure, lexical/static scoping
+### Closure
+Is sometimes referred to as lexical/static scoping
 Functions can nest, functions are values.
 
-Using **Closure**
+Example using **Closure**
 
 ```
 var digit_name = (function() {
@@ -106,7 +111,7 @@ var singleton = (function() {
 }());
 ```
 
-Functional Inheritance
+### Functional Inheritance
 
 ```
 function gizmo(id) {
