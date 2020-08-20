@@ -6,7 +6,7 @@ Notes taken from Douglas Crockford [lecture](https://www.youtube.com/watch?v=Dog
 
 A function expression creates functions using the function expression/literal, which returns a new function object, which in turn can be invoked.
 
-The naming a functions allows for it to be called **recursively** (by itself so it repeats).
+The naming of a function allows for it to be called **recursively** (by itself so it repeats).
 
 Function objects are **first class**.
 This means they may be:
@@ -39,7 +39,7 @@ myVar = 0;
 
 ### function statement
 
-A function statement is a short-hand for a var statement with a function value. A function name is mandatory.
+A function statement is a short-hand for a ```var``` statement with a function value. A function name is mandatory.
 Example:
 ```function foo() {}```
 expands to
