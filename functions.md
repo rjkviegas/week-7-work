@@ -130,6 +130,78 @@ function hoozit(id) {
   return that;
 }
 ```
+```
+function my_little_constructor(spec) {
+  let {member} = spec;
+  const reuse = other_constructor(spec);
+  const method function() {
+    // It can use spec, member, reuse, method
+  };
+  return Object.freeze({
+    method,
+    goodness: reuse.goodness
+  });
+}
+```
+Messing Around:
+
+```
+function counter_constructor() {
+  let counter = 0;
+
+  function up() {
+    counter += 1;
+    return counter;
+  }
+
+  function down() {
+    counter -= 1;
+    return counter
+  }
+
+  return Object.freeze({
+    up,
+    down
+  });
+}
+let spec = {name : "Dewey", mana_cost : 50, isLong : true};
+
+function game_counter(spec) {
+  let {name, mana_cost, isLong} = spec;
+  const reuse = counter_constructor(spec);
+  
+  const myName = function() {
+    return "My name is " + name;
+  }
+  
+  const losesLegs = function() {
+    isLong = false;
+  }
+  
+  const isLongLong = function() {
+    return isLong;
+  }
+  
+  return Object.freeze({
+    myName, 
+    losesLegs,
+    isLongLong,
+    up : reuse.up,
+    down : reuse.down
+  });
+}
+
+const gamedeath = game_counter(spec);
+
+gamedeath // {myName: ƒ, losesLegs: ƒ, isLongLong: ƒ, up: ƒ, down: ƒ}
+
+gamedeath.up() // 1
+gamedeath.down() // 0
+gamedeath.myName() // "My name is Dewey"
+gamedeath.isLongLong() // true
+gamedeath.losesLegs() // undefined
+gamedeath.isLongLong() // false
+```
 
 
 

@@ -21,11 +21,12 @@
       };
 
       function showAnimalForCurrentPage() {
+        console.log(showAnimal(getAnimalFromUrl(window.location)));
         showAnimal(getAnimalFromUrl(window.location));
       };
 
       function getAnimalFromUrl(location) {
-        console.log(location.hash);
+        console.log(location.hash.split("#")[1]);
         return location.hash.split("#")[1];
       };
 
